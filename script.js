@@ -23,10 +23,11 @@ function handel_motion(event) {
 	e_z.innerHTML = z.toString()
 }
 
-
+/* 
 function start(){
 	DeviceOrientationEvent.requestPermission()
 		.then(function(response){
+			console.log(response)
 			if (response == 'grandted'){
 				window.addEventListener('deviceorientation', event => {
 					document.getElementById('value_x').innerHTML = event.alpha
@@ -35,6 +36,23 @@ function start(){
 				})
 			}
 		})
-		.catch(alert('Without Device Oriantation Permission this app can not function properly!'))
-		
+		.catch((err) => {
+			console.error(err);
+		  });
 }
+ */
+
+
+if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+	DeviceOrientationEvent.requestPermission()
+	  .then(permissionState => {
+		if (permissionState === 'granted') {
+			window.addEventListener('deviceorientation', event => {
+				document.getElementById('value_x').innerHTML = event.alpha
+				document.getElementById('value_y').innerHTML = event.beta
+				document.getElementById('value_z').innerHTML = event.gamma
+			})
+		}
+	  })
+	  .catch(console.error);
+  }
