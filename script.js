@@ -1,6 +1,6 @@
 
 const audio = new Audio('theme_short.mp3');
-let th = 50
+let th = 150
 
 function play_sound() {
 	audio.play();
@@ -10,7 +10,7 @@ function play_sound() {
 function stop_sound() {
 	audio.pause();
 }
- audio.pl
+
 
 function check_motion(gamma){
 	// gamma entspricht rotationsrate um Vektor normal zu Bildschirm
@@ -49,7 +49,7 @@ function start_motion(){
 
 	
 	audio.play()
-	setTimeout(audio.pause, 1)
+	setTimeout(stop_sound, 1)
 }
 
 
