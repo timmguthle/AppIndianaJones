@@ -18,9 +18,9 @@ function handleEvents(event) {
 	var y = event.acceleration.y
 	var z = event.acceleration.z
 
-	e_x.textContent = x.toString()
-	e_y.textContent = y.toString()
-	e_z.textContent = z.toString()
+	e_x.innerHTML = x.toString()
+	e_y.innerHTML = y.toString()
+	e_z.innerHTML = z.toString()
 
 	
 
