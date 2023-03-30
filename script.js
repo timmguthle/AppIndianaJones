@@ -23,24 +23,28 @@ function handel_motion(event) {
 	e_z.innerHTML = z.toString()
 }
 
-/* 
-function start(){
-	DeviceOrientationEvent.requestPermission()
-		.then(function(response){
-			console.log(response)
-			if (response == 'grandted'){
-				window.addEventListener('deviceorientation', event => {
-					document.getElementById('value_x').innerHTML = event.alpha
-					document.getElementById('value_y').innerHTML = event.beta
-					document.getElementById('value_z').innerHTML = event.gamma
+function start_motion(){
+	if (typeof DeviceMotionEvent.requestPermission === 'function') {
+		DeviceMotionEvent.requestPermission()
+		.then(permissionState => {
+			if (permissionState === 'granted') {
+				window.addEventListener('devicemotion', event => {
+					document.getElementById('value_x').innerHTML = event.acceleration.x
+					document.getElementById('value_y').innerHTML = event.acceleration.y
+					document.getElementById('value_z').innerHTML = event.acceleration.z
 				})
 			}
 		})
-		.catch((err) => {
-			console.error(err);
-		  });
+		.catch(console.error);
+	} else {
+		window.addEventListener('devicemotion', event => {
+			document.getElementById('value_x').innerHTML = event.acceleration.x
+			document.getElementById('value_y').innerHTML = event.acceleration.y
+			document.getElementById('value_z').innerHTML = event.acceleration.z
+		})
+	}
 }
- */
+
 
 function start(){
 	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
@@ -55,5 +59,15 @@ function start(){
 			}
 		})
 		.catch(console.error);
-	}
+	} else {
+		console.log('test')
+		window.addEventListener('deviceorientation', event => {
+			document.getElementById('value_x').innerHTML = event.alpha
+			document.getElementById('value_y').innerHTML = event.beta
+			document.getElementById('value_z').innerHTML = event.gamma
+	})}
+}
+
+function stop(){
+	removeEventListener('deviceorientation')
 }
