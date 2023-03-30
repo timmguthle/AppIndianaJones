@@ -25,6 +25,6 @@ function handel_motion(event) {
 
 
 
-window.addEventListener('devicemotion', event => {
-	document.getElementById('value_y').innerHTML = event.acceleration.y
+window.addEventListener('deviceorientation', event => {
+	document.getElementById('value_y').innerHTML = event.alpha
 }, true)
