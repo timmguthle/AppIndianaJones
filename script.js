@@ -24,7 +24,17 @@ function handel_motion(event) {
 }
 
 
-
-window.addEventListener('deviceorientation', event => {
-	document.getElementById('value_y').innerHTML = event.alpha
-}, true)
+function start(){
+	DeviceOrientationEvent.requestPermission()
+		.then(function(response){
+			if (response == 'grandted'){
+				window.addEventListener('deviceorientation', event => {
+					document.getElementById('value_x').innerHTML = event.alpha
+					document.getElementById('value_y').innerHTML = event.beta
+					document.getElementById('value_z').innerHTML = event.gamma
+				})
+			}
+		})
+		.catch(alert('Without Device Oriantation Permission this app can not function properly!'))
+		
+}
