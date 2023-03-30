@@ -42,17 +42,18 @@ function start(){
 }
  */
 
-
-if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-	DeviceOrientationEvent.requestPermission()
-	  .then(permissionState => {
-		if (permissionState === 'granted') {
-			window.addEventListener('deviceorientation', event => {
-				document.getElementById('value_x').innerHTML = event.alpha
-				document.getElementById('value_y').innerHTML = event.beta
-				document.getElementById('value_z').innerHTML = event.gamma
-			})
-		}
-	  })
-	  .catch(console.error);
-  }
+function start(){
+	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+		DeviceOrientationEvent.requestPermission()
+		.then(permissionState => {
+			if (permissionState === 'granted') {
+				window.addEventListener('deviceorientation', event => {
+					document.getElementById('value_x').innerHTML = event.alpha
+					document.getElementById('value_y').innerHTML = event.beta
+					document.getElementById('value_z').innerHTML = event.gamma
+				})
+			}
+		})
+		.catch(console.error);
+	}
+}
