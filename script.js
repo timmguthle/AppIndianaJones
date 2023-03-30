@@ -1,6 +1,7 @@
 
 const audio = new Audio('theme_short.mp3');
-let th = 150
+let th = 250
+let max_gamma = 0;
 
 function play_sound() {
 	audio.play();
@@ -33,11 +34,15 @@ function start_motion(){
 					document.getElementById('value_z').innerHTML = event.acceleration.z
 					document.getElementById('rotRate').innerHTML = event.rotationRate.gamma + '' + event.rotationRate.beta + '' + event.rotationRate.alpha
 					check_motion(event.rotationRate.gamma)
+					if (event.gamma > max_gamma) {
+						max_gamma = event.gamma
+						console.log(max_gamma)
+					}
 				
 				})
 			}
 		})
-		.catch(console.error);
+		.catch(error => {console.log(error); alert(error)});
 	} 
 	
 	/* else {
@@ -50,12 +55,6 @@ function start_motion(){
 	
 	audio.play()
 	setTimeout(stop_sound, 1)
-}
-
-
-function stop_motion(){
-	window.removeEventListener('devicemotion', )
-	document.getElementById('stop_button').style.visibility = 'hidden'
 }
 
 
