@@ -26,8 +26,7 @@ function start_motion(){
 		DeviceMotionEvent.requestPermission()
 		.then(permissionState => {
 			if (permissionState === 'granted') {
-				document.getElementById('stop_button').style.visibility = 'visible';
-
+				
 				window.addEventListener('devicemotion', event => {
 					document.getElementById('value_x').innerHTML = event.acceleration.x
 					document.getElementById('value_y').innerHTML = event.acceleration.y
@@ -58,7 +57,7 @@ function start_motion(){
 }
 
 
-function start(){
+function start_orientation(){
 	if (typeof DeviceOrientationEvent.requestPermission === 'function') {
 		DeviceOrientationEvent.requestPermission()
 		.then(permissionState => {
@@ -78,8 +77,4 @@ function start(){
 			document.getElementById('value_y').innerHTML = event.beta
 			document.getElementById('value_z').innerHTML = event.gamma
 	})}
-}
-
-function stop(){
-	window.removeEventListener('deviceorientation')
 }
