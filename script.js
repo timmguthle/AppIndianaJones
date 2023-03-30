@@ -1,6 +1,6 @@
 
 const audio = new Audio('theme_short.mp3');
-let th = 5
+let th = 20
 
 function play_sound() {
 	audio.play();
@@ -32,7 +32,7 @@ function start_motion(){
 					document.getElementById('value_y').innerHTML = event.acceleration.y
 					document.getElementById('value_z').innerHTML = event.acceleration.z
 					document.getElementById('rotRate').innerHTML = event.rotationRate.gamma + '' + event.rotationRate.beta + '' + event.rotationRate.alpha
-					check_motion(event.gamma)
+					check_motion(event.rotationRate.gamma)
 				
 				})
 			}
@@ -48,7 +48,7 @@ function start_motion(){
 }
 
 function stop_motion(){
-	window.removeEventListener('devicemotion')
+	window.removeEventListener('devicemotion', )
 	document.getElementById('stop_button').style.visibility = 'hidden'
 }
 
