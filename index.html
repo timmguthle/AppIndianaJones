@@ -8,31 +8,36 @@
 </head>
 <body>
 	<div class="overlay-image">
-
-		<button type="button", onclick="start_motion()">
+		<div id="btn-div">
+		<button type="button", id="go_bt" class="button-44" onclick="start_motion()">
 			Let's go
 		</button>
-		
-		<button type="button" onclick="play_sound()">
-			play sound
+		</div>
+
+		<div id="th-div">
+
+		<button type="button", id="plus-btn", class="button-44" onclick="th_plus()">
+			+
 		</button>
-		<button type="button" onclick="stop_sound()">
+		
+
+		<p id="th"> </p>
+		<button type="button", id="minus-btn", onclick="th_minus()" class="button-44">
+			-
+		</button>
+		
+		</div>
+		
+		<!-- <button type="button" onclick="stop_sound()">
 			stop sound
 		</button>
-		<div>
-			<h2 id="value_x" style="color: #FFFFFF;">Hier ist der x Wert</h2>
-			<h2 id="value_y" style="color: #FFFFFF;">Hier ist der y Wert</h2>
-			<h2 id="value_z" style="color: #FFFFFF;">Hier ist der z Wert</h2>
-			<h2 id="rotRate">Hier rotation rate</h2>
-		</div>
+		 -->
 
 	</div>
 
 
 		
 
-
-	
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>

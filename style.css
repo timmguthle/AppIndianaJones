@@ -4,6 +4,7 @@ body{
 	margin: 0;
 	background-color: #000;
 	color: white;
+	font-family: 'Times New Roman', Times, serif;
 }	
 
 
@@ -18,7 +19,80 @@ body{
 	background-image: url('picture.jpg');
 	background-repeat: no-repeat;
 	background-color: #000;
+}
 
+
+#btn-div{
+	position: fixed;
+	width: 50%;
+	left: 50%;
+	bottom: 0;
+	transform: translateX(-50%);
+	margin-bottom: 5%;
+}
+
+#minus-btn {
+	display: inline;
+	width: 20%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+#plus-btn {
+	display: inline;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 20%;
+}
+
+#th {
+	display: inline;
+	position: fixed;
+	right: 50%;
+	top: 0;
+	transform: translateX(50%);
+}
+
+.button-44 {
+  background: rgb(228, 67, 35);
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #ecdfbd;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  word-break: break-word;
+  border: 0;
+}
+
+.button-44:active,
+.button-44:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+.button-44:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
 }
 
 #stop_button {

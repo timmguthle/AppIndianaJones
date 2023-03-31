@@ -11,6 +11,9 @@ function stop_sound() {
 	audio.pause();
 }
 
+function th_plus() {th += 20; document.getElementById('th').innerHTML = th;}
+function th_minus() {th -= 20; document.getElementById('th').innerHTML = th}
+
 
 function check_motion(gamma){
 	// gamma entspricht rotationsrate um Vektor normal zu Bildschirm
@@ -18,6 +21,12 @@ function check_motion(gamma){
 	if (Math.abs(gamma) > th) {
 		audio.play()
 	}
+
+	// document.getElementById('value_x').innerHTML = event.acceleration.x
+	// document.getElementById('value_y').innerHTML = event.acceleration.y
+	// document.getElementById('value_z').innerHTML = event.acceleration.z
+	// document.getElementById('rotRate').innerHTML = event.rotationRate.gamma + '' + event.rotationRate.beta + '' + event.rotationRate.alpha
+
 }
 
 function start_motion(){
@@ -26,29 +35,14 @@ function start_motion(){
 		.then(permissionState => {
 			if (permissionState === 'granted') {
 				
-				window.addEventListener('devicemotion', event => {
-					document.getElementById('value_x').innerHTML = event.acceleration.x
-					document.getElementById('value_y').innerHTML = event.acceleration.y
-					document.getElementById('value_z').innerHTML = event.acceleration.z
-					document.getElementById('rotRate').innerHTML = event.rotationRate.gamma + '' + event.rotationRate.beta + '' + event.rotationRate.alpha
-					check_motion(event.rotationRate.gamma)
-				
-				})
+				window.addEventListener('devicemotion', event => {check_motion(event.rotationRate.gamma)})
 			}
 		})
 		.catch(error => {console.log(error); alert(error)});
 	} 
 	
-	/* else {
-		window.addEventListener('devicemotion', event => {
-			document.getElementById('value_x').innerHTML = event.acceleration.x
-			document.getElementById('value_y').innerHTML = event.acceleration.y
-			document.getElementById('value_z').innerHTML = event.acceleration.z
-		})} */
 
-	
-	audio.play()
-	setTimeout(stop_sound, 1)
+	audio.play().then(audio.pause()).catch(error => {console.log(error)})
 }
 
 
