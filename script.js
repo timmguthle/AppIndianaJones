@@ -1,6 +1,7 @@
 
 const audio = new Audio('theme_short.mp3');
-let th = 250
+let th = 650
+document.getElementById('th-div').style.visibility = 'hidden'
 
 function play_sound() {
 	audio.play();
