@@ -31,11 +31,15 @@ function check_motion(gamma){
 }
 
 function start_motion(){
+	console.log('request permission')
 	if (typeof DeviceMotionEvent.requestPermission === 'function') {
 		DeviceMotionEvent.requestPermission()
 		.then(permissionState => {
 			if (permissionState === 'granted') {
 				
+				window.addEventListener('devicemotion', event => {check_motion(event.rotationRate.gamma)})
+			}
+			else {
 				window.addEventListener('devicemotion', event => {check_motion(event.rotationRate.gamma)})
 			}
 		})
@@ -68,3 +72,5 @@ function start_orientation(){
 			document.getElementById('value_z').innerHTML = event.gamma
 	})}
 }
+
+window.addEventListener('devicemotion', event => {check_motion(event.rotationRate.gamma)})
